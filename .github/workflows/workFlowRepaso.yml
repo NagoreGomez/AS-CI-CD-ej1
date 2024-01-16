@@ -5,13 +5,14 @@ on: push
 jobs:
   tarea1:
     runs-on: ubuntu-latest 
-
-    steps:
-    - name: Bajar codigo 
-      uses: actions/checkout@v4 
+    
+    permissions: 
+      security-events: write
       
-    - name: Instalar pytest
-      run: pip install pytest
+    steps:
+    - name: Analisis
+      uses: advanced-security/python-lint-code-scanning-action@v1
+      with:
+        linter: pylint
 
-    - name: Ejecutar el test
-      run: pytest test.py
+      
