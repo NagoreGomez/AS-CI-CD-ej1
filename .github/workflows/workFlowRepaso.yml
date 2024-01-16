@@ -1,0 +1,17 @@
+name: Workflow prueba
+
+on: push
+
+jobs:
+  tarea1:
+    runs-on: ubuntu-latest 
+
+    steps:
+    - name: Bajar codigo 
+      uses: actions/checkout@v4 
+      
+    - name: Instalar pytest
+      run: pip install pytest
+
+    - name: Ejecutar el test
+      run: pytest test.py
